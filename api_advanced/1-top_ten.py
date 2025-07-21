@@ -10,12 +10,12 @@ def top_ten(subreddit):
     try:
         RESPONSE = requests.get(URL, headers=HEADERS, allow_redirects=False)
         if RESPONSE.status_code != 200:
-            print(None)
+            print("None")
             return
         HOT_POSTS = RESPONSE.json().get("data").get("children")
         if HOT_POSTS is None:
-            print(None)
+            print("None")
             return
         [print(post.get('data').get('title')) for post in HOT_POSTS]
     except Exception:
-        print(None)
+        print("None")
